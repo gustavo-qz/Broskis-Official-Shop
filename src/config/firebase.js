@@ -12,6 +12,20 @@ admin.initializeApp({
   credential: admin.credential.cert({ projectId, clientEmail, privateKey })
 });
 
+console.log("✅ Firebase Admin inicializado (credenciais aceitas)");
+
 const db = admin.firestore();
+
+// Teste real de conexão com o Firestore
+async function testarConexao() {
+  try {
+    await db.collection("_health_check").limit(1).get();
+    console.log("✅ Firestore respondendo normalmente — conexão confirmada");
+  } catch (err) {
+    console.error("❌ Erro ao conectar no Firestore:", err.message);
+  }
+}
+
+testarConexao();
 
 module.exports = { db };
