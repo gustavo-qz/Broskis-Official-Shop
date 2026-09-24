@@ -31,8 +31,6 @@ Cada Collection possui:
 npm install
 ```
 
-Copie `.env.example` para `.env` e coloque as credenciais do Firebase Admin SDK.
-
 Depois:
 
 ```bash
